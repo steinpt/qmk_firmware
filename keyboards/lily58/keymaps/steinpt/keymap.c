@@ -1,11 +1,19 @@
 #include QMK_KEYBOARD_H
 
+bool is_cmd_tab_active = false; // ADD this near the beginning of keymap.c
+uint16_t cmd_tab_timer = 0;
+
+enum custom_keycodes {          // Make sure have the awesome keycode ready
+  CMD_TAB = SAFE_RANGE,
+};
+
 enum layer_number {
   _BASE = 0,
   _NAVIGATION = 1,
   _RAISE,
   _ADJUST,
 };
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -48,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_NAVIGATION] = LAYOUT(
   _______,      LGUI(KC_1),         LGUI(KC_2),         LGUI(KC_3),         LGUI(KC_4),         LGUI(KC_5),                   _______, _______, _______, _______, _______,  _______,
-  LGUI(KC_TAB), LGUI(KC_Q),         LGUI(KC_W),         LGUI(KC_E),         LGUI(KC_R),         LGUI(KC_T),                   _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______,
+  CMD_TAB,      LGUI(KC_Q),         LGUI(KC_W),         LGUI(KC_E),         LGUI(KC_R),         LGUI(KC_T),                   _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______,
   _______,      LCTL_T(LGUI(KC_A)), LALT_T(LGUI(KC_S)), LGUI_T(LGUI(KC_D)), LSFT_T(LGUI(KC_F)), LGUI(KC_G),                   _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______,
   _______,      LGUI(KC_Z),         LGUI(KC_X),         LGUI(KC_C),         LGUI(KC_V),         LGUI(KC_B), _______, _______, _______, _______, _______, _______, _______,  _______,
                                                         _______,            _______,            _______,    _______, _______, _______, _______, _______
@@ -146,6 +154,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #endif
     // set_timelog();
   }
+  switch (keycode) { // This will do most of the grunt work with the keycodes.
+    case CMD_TAB:
+      if (record->event.pressed) {
+        if (!is_cmd_tab_active) {
+          is_cmd_tab_active = true;
+          register_code(KC_LGUI);
+        }
+        cmd_tab_timer = timer_read();
+        register_code(KC_TAB);
+      } else {
+        unregister_code(KC_TAB);
+      }
+      break;
+  }
   return true;
 }
 
@@ -165,3 +187,12 @@ const key_override_t *key_overrides[] = {
 
 
 
+
+void matrix_scan_user(void) { // The very important timer.
+  if (is_cmd_tab_active) {
+    if (timer_elapsed(cmd_tab_timer) > 1000) {
+      unregister_code(KC_LGUI);
+      is_cmd_tab_active = false;
+    }
+  }
+}
