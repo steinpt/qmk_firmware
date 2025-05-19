@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_BASE] = LAYOUT(
-  _______,  KC_1,         KC_2,         KC_3,         KC_4,         KC_5,                            KC_6,    KC_7,         KC_8,         KC_9,         KC_0,            _______,
+  _______,  KC_1,         KC_2,         KC_3,         KC_4,         KC_5,                            KC_6,    KC_7,         KC_8,         KC_9,         KC_0,            KC_MINS,
   KC_TAB,   KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                            KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,            KC_LBRC,
   _______,  LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,                            KC_H,    RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT,
   _______,  KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,          _______, _______, KC_N,    KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,         _______,
@@ -55,10 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
 [_NAVIGATION] = LAYOUT(
-  _______,      LGUI(KC_1),         LGUI(KC_2),         LGUI(KC_3),         LGUI(KC_4),         LGUI(KC_5),                   _______, _______, _______, _______, _______,  _______,
-  GUI_TAB,      LGUI(KC_Q),         LGUI(KC_W),         LGUI(KC_E),         LGUI(KC_R),         LGUI(KC_T),                   _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______,
-  _______,      LCTL_T(LGUI(KC_A)), LALT_T(LGUI(KC_S)), LGUI_T(LGUI(KC_D)), LSFT_T(LGUI(KC_F)), LGUI(KC_G),                   _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______,
-  _______,      LGUI(KC_Z),         LGUI(KC_X),         LGUI(KC_C),         LGUI(KC_V),         LGUI(KC_B), _______, _______, _______, _______, _______, _______, _______,  _______,
+  _______,      LGUI(KC_1),         LGUI(KC_2),         LGUI(KC_3),         LGUI(KC_4),         LGUI(KC_5),                   _______, _______, _______, _______,  _______, _______,
+  GUI_TAB,      LGUI(KC_Q),         LGUI(KC_W),         LGUI(KC_E),         LGUI(KC_R),         LGUI(KC_T),                   KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, _______,
+  _______,      LCTL_T(LGUI(KC_A)), LALT_T(LGUI(KC_S)), LGUI_T(LGUI(KC_D)), LSFT_T(LGUI(KC_F)), LGUI(KC_G),                   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,
+  _______,      LGUI(KC_Z),         LGUI(KC_X),         LGUI(KC_C),         LGUI(KC_V),         LGUI(KC_B), _______, _______, _______, _______, _______, _______,  _______, _______,
                                                         _______,            _______,            _______,    _______, _______, _______, _______, _______
 ),
 /* RAISE
