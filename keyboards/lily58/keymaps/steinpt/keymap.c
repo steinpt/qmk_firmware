@@ -1,10 +1,14 @@
 #include QMK_KEYBOARD_H
 
 bool is_gui_tab_active = false; // ADD this near the beginning of keymap.c
+bool is_ctl_tab_active = false; // ADD this near the beginning of keymap.c
+
 uint16_t gui_tab_timer = 0;
+uint16_t ctl_tab_timer = 0;
 
 enum custom_keycodes {          // Make sure have the awesome keycode ready
   GUI_TAB = SAFE_RANGE,
+  CTL_TAB
 };
 
 enum layer_number {
@@ -57,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
   _______, LGUI(KC_1),   LGUI(KC_2),   LGUI(KC_3),   LGUI(KC_4),   LGUI(KC_5),                   _______, _______, _______, _______,  _______, _______,
   GUI_TAB, LGUI(KC_Q),   LGUI(KC_W),   LGUI(KC_E),   LGUI(KC_R),   LGUI(KC_T),                   KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, _______,
-  _______, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), LGUI(KC_G),                   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,
+  CTL_TAB, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), LGUI(KC_G),                   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,
   _______, LGUI(KC_Z),   LGUI(KC_X),   LGUI(KC_C),   LGUI(KC_V),   LGUI(KC_B), _______, _______, _______, _______, _______, _______,  _______, _______,
                                        _______,      _______,      _______,    _______, _______, _______, _______, _______
 ),
@@ -167,6 +171,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         unregister_code(KC_TAB);
       }
       break;
+    case CTL_TAB:
+      if (record->event.pressed) {
+        if (!is_ctl_tab_active) {
+          is_ctl_tab_active = true;
+          register_code(KC_LCTL);
+        }
+        ctl_tab_timer = timer_read();
+        register_code(KC_TAB);
+      } else {
+        unregister_code(KC_TAB);
+      }
+      break;
   }
   return true;
 }
@@ -190,6 +206,12 @@ void matrix_scan_user(void) { // The very important timer.
     if (timer_elapsed(gui_tab_timer) > 1000) {
       unregister_code(KC_LGUI);
       is_gui_tab_active = false;
+    }
+  }
+  if (is_ctl_tab_active) {
+    if (timer_elapsed(ctl_tab_timer) > 1000) {
+      unregister_code(KC_LCTL);
+      is_ctl_tab_active = false;
     }
   }
 }
