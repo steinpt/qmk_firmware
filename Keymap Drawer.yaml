@@ -1,0 +1,238 @@
+layout: {qmk_keyboard: lily58/r2g, layout_name: LAYOUT}
+layers:
+  L0:
+  - "§ '"
+  - '! 1'
+  - '" 2'
+  - '# 3'
+  - '$ 4'
+  - '% 5'
+  - '& 6'
+  - '/ 7'
+  - '( 8'
+  - ') 9'
+  - '= 0'
+  - '? +'
+  - TAB
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - 'Å'
+  - 'TTAB'
+  - {t: A, h: LCTL}
+  - {t: S, h: LALT}
+  - {t: D, h: LGUI}
+  - {t: F, h: LSFT}
+  - G
+  - H
+  - {t: J, h: RSFT}
+  - {t: K, h: RGUI}
+  - {t: L, h: RALT}
+  - {t: 'Ø', h: RCTL}
+  - 'Æ'
+  - {t: ▽, type: trans}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - HYPR
+  - HYPR
+  - N
+  - M
+  - '; ,'
+  - ': .'
+  - '_ -'
+  - '* @'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: BSPC, h: L1}
+  - {t: ESC, h: L2}
+  - ENT
+  - SPC
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  L1:
+  - {t: ▽, type: trans}
+  - Gui+1
+  - Gui+2
+  - Gui+3
+  - Gui+4
+  - Gui+5
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - GUI TAB
+  - Gui+Q
+  - Gui+W
+  - Gui+E
+  - Gui+R
+  - Gui+T
+  - HOME
+  - PGDN
+  - PGUP
+  - END
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - CTL TAB
+  - {t: A, h: LCTL}
+  - {t: S, h: LALT}
+  - {t: D, h: LGUI}
+  - {t: F, h: LSFT}
+  - Gui+G
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Gui+Z
+  - Gui+X
+  - Gui+C
+  - Gui+V
+  - Gui+B
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  L2:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '?'
+  - '+'
+  - '-'
+  - '~' 
+  - '/'
+  - '\'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&'
+  - '<'
+  - '='
+  - '>'
+  - '|'
+  - '#'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '['
+  - '('
+  - ':'
+  - ')'
+  - ']'
+  - '%'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '$'
+  - '{'
+  - '*'
+  - '}'
+  - '^'
+  - '!'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  L3:
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}

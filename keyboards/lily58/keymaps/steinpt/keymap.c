@@ -15,7 +15,7 @@ enum layer_number {
   _BASE = 0,
   _NAVIGATION,
   _SYMBOLS,
-  _ADJUST,
+  _NUMBERS
 };
 
 
@@ -41,8 +41,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_NUBS,  KC_1,         KC_2,         KC_3,         KC_4,         KC_5,                                   KC_6,    KC_7,         KC_8,         KC_9,         KC_0,            KC_MINS,
   KC_TAB,   KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                   KC_Y,    KC_U,         KC_I,         KC_O,         KC_P,            KC_LBRC,
   _______,  LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,                                   KC_H,    RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), KC_QUOT,
-  _______,  KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,           _______,       _______, KC_N,    KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,         KC_BSLS,
-                                        _______,      _______,      LT(1, KC_BSPC), LT(2, KC_ESC), KC_ENT,  KC_SPC,  _______,      _______
+  _______,  KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,           KC_HYPR,       KC_HYPR, KC_N,    KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,         KC_BSLS,
+                                        _______,      _______,      LT(1, KC_BSPC), LT(2, KC_ESC), KC_ENT,  LT(3, KC_SPC),  _______,      _______
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -81,10 +81,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_SYMBOLS] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                     LSFT(KC_MINS), KC_MINS, KC_SLSH, LCTL(KC_RBRC), LSFT(KC_7), LSA(KC_7),
-  _______, _______, _______, _______, _______, _______,                     LSFT(KC_6), KC_GRV, LSFT(KC_0), LSFT(KC_GRV), LALT(KC_7), LSFT(KC_3),
-  _______, _______, _______, _______, _______, _______,                     LALT(KC_8), LSFT(KC_8), LSFT(KC_DOT), LSFT(KC_9), LALT(KC_9), LSFT(KC_5),
-  _______, _______, _______, _______, _______, _______,  _______, _______,  LSFT(KC_4), LSA(KC_8), LSFT(KC_BSLS), LSA(KC_9), LSFT(KC_RBRC), LSFT(KC_1),
+  _______, _______, _______, _______, _______, _______,                     LSFT(KC_MINS), KC_MINS,    KC_SLSH,       LCTL(KC_RBRC), LSFT(KC_7),    LSA(KC_7),
+  _______, _______, _______, _______, _______, _______,                     LSFT(KC_6),    KC_GRV,     LSFT(KC_0),    LSFT(KC_GRV),  LALT(KC_7),    LSFT(KC_3),
+  _______, _______, _______, _______, _______, _______,                     LALT(KC_8),    LSFT(KC_8), LSFT(KC_DOT),  LSFT(KC_9),    LALT(KC_9),    LSFT(KC_5),
+  _______, _______, _______, _______, _______, _______,  _______, _______,  LSFT(KC_4),    LSA(KC_8),  LSFT(KC_BSLS), LSA(KC_9),     LSFT(KC_RBRC), LSFT(KC_1),
                              _______, _______, _______,  _______, _______,  _______, _______, _______
 ),
 /* ADJUST
@@ -101,17 +101,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   |      |      |      |/       /         \      \ |      |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
-  [_ADJUST] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                             _______, _______, _______, _______, _______,  _______, _______, _______
+  [_NUMBERS] = LAYOUT(
+  _______,    LALT(KC_8), LSFT(KC_BSLS), LSFT(KC_7), LALT(KC_9), LSFT(KC_RBRC),                   _______, _______, _______, _______, _______, _______,
+  KC_TAB,     KC_1,       KC_2,          KC_3,       KC_4,       KC_5,                            _______, _______, _______, _______, _______, _______,
+  KC_ENT,     KC_6,       KC_7,          KC_8,       KC_9,       KC_0,                            _______, _______, _______, _______, _______, _______,
+  LSFT(KC_0), LSFT(KC_8), KC_MINS,       KC_SLSH,    LSFT(KC_9), KC_DOT,        _______, _______, _______, _______, _______, _______, _______, _______,
+                                         _______,    _______,    KC_DEL,        _______, _______, _______, _______, _______
   )
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _NAVIGATION, _SYMBOLS, _ADJUST);
+  // return update_tri_layer_state(state, _NAVIGATION, _SYMBOLS, _NUMBERS);
+  return state; // If you don't use the tri-layer, just return the state.
 }
 
 //SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
@@ -189,15 +190,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef KEY_OVERRIDE_ENABLE
 // SPT Key Overrides AE, OE, AA
-const key_override_t o_oe_override = ko_make_basic(MOD_MASK_ALT, KC_O, KC_SCLN);
-const key_override_t a_aa_override = ko_make_basic(MOD_MASK_ALT, KC_A, KC_LBRC);
-const key_override_t q_ae_override = ko_make_basic(MOD_MASK_ALT, KC_Q, KC_QUOT);
+const key_override_t bspc_del_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
-	&o_oe_override,
-    &a_aa_override,
-    &q_ae_override
+    &bspc_del_override
 };
 #endif //KEY_OVERRIDE_ENABLE
 
